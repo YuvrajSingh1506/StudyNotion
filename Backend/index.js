@@ -40,9 +40,9 @@ app.use(
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
-        return callback(null, origin);
+        return callback(null, true);
       }
-      return callback(null, origin);
+      return callback(null, true);
     },
     credentials: true,
   })
