@@ -29,16 +29,25 @@ app.use(express.json());
 app.use(cookieParser());
 
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://study-notion-ten-ashen.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "https://study-notion-ten-ashen.vercel.app"
-    ],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
+        return callback(null, origin);
+      }
+      return callback(null, origin);
+    },
     credentials: true,
   })
 );
+app.options("*", cors());
 
 
 
