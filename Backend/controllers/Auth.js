@@ -2,7 +2,12 @@ const User = require("../models/User");
 const OTP = require("../models/OTP");
 const Profile = require("../models/Profile");
 const otpgenerator = require("otp-generator");
-const bycrpt = require("bcrypt");
+let bycrpt;
+try {
+  bycrpt = require("bcryptjs");
+} catch {
+  bycrpt = require("bcrypt");
+}
 const jwt = require("jsonwebtoken");
 const {mailSender} = require("../utils/mailSender");
 const {passwordUpdate} = require("../mail/templates/passwordUpdate");
@@ -136,7 +141,7 @@ require("dotenv").config();
     try{
         const {email,password} = req.body;
         if(!email || !password){
-            return res.status(403),json({
+            return res.status(403).json({
                 success:false,
                 message : "All fields are required, please try again",
             });

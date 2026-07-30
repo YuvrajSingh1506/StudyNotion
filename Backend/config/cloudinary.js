@@ -1,4 +1,4 @@
-const cloudinary = require("cloudinary");
+const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
 exports.cloudinaryConnect = ()=>{
     try{
@@ -9,6 +9,6 @@ exports.cloudinaryConnect = ()=>{
         })
         console.log("Cloudinary connected successfully");
     }catch(err){
-        console.error(err);
+        console.error("Cloudinary error:", err);
     }
 }
