@@ -26,7 +26,7 @@ app.use(cookieParser());
 // Add your Vercel frontend URL to the origin array
 app.use(
     cors({
-        origin: ["http://localhost:3000", "https://study-notion-ten-ashen.vercel.app/"],
+        origin: ["http://localhost:3000", "https://study-notion-ten-ashen.vercel.app"],
         credentials : true,
     })
 );
