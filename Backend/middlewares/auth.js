@@ -4,17 +4,21 @@ require("dotenv").config();
 exports.auth = async(req,res,next) =>{
        
         try{
-            const token =
-            req.header("Authorization")?.replace("Bearer ", "") ||
+            let token =
+            req.header("Authorization")?.replace(/^Bearer\s+/, "").trim() ||
             req.cookies?.token ||
-            req.body?.token
-            || req.header("Authorisation")?.replace("Bearer ","");
+            req.body?.token ||
+            req.header("Authorisation")?.replace(/^Bearer\s+/, "").trim();
+            
+            if (token && typeof token === "string") {
+              token = token.replace(/^"(.*)"$/, '$1');
+            }
+
             console.log("FINAL TOKEN:", token);
             if(!token){
-                return res.status(400).json({
+                return res.status(401).json({
                     success : false,
-                    message : "token is missing ",
-                    error : token,
+                    message : "token is missing",
                 })
             }
             try{
