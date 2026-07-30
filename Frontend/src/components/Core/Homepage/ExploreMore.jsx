@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {HomePageExplore} from "../../../data/homepage-explore";
-import HightlightText from "./HighlightText";
+import HighlightText from "./HighlightText";
 import CourseCard from "./CourseCard";
 const tabsName = [
     "Free",
@@ -26,7 +26,7 @@ const ExploreMore = () => {
                 {/* heading power of code */}
                 <div className="text-4xl font-semibold text-center">
                     Unlock the 
-                    <HightlightText text={"Power of Code"}/>
+                    <HighlightText text={"Power of Code"}/>
                 </div>
                 <div className="text-[16px]  text-center text-richblack-300 mt-3">
                     Learn to Build Anything You Can Imagine

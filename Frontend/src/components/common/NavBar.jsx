@@ -9,7 +9,7 @@ import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiconnector"
 import { categories } from "../../services/api"
 import { ACCOUNT_TYPE } from "../../utils/constant"
-import ProfileDropdown from "../core/Auth/ProfileDropDown"
+import ProfileDropdown from "../Core/Auth/ProfileDropDown"
 import { fetchCourseCategories, fetchCourseDetails } from "../../services/operation/courseDetailAPI"
 
 function Navbar() {

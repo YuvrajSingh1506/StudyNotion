@@ -1,11 +1,11 @@
 import React from 'react'
-import HightlightText from '../HomePage/HighlightText'
+import HighlightText from '../Homepage/HighlightText'
 
 const Quote = () => {
   return (
     <div className="text-xl font-semibold mx-auto py-5 pb-20 text-center text-white">
         We are passionate about revolutionizing the way we learn. Our
-        innovative platform <HightlightText text={"combines technology"} />,{" "}
+        innovative platform <HighlightText text={"combines technology"} />,{" "}
         <span className="bg-gradient-to-b from-[#FF512F] to-[#F09819] text-transparent bg-clip-text font-bold">
             {" "}
             expertise

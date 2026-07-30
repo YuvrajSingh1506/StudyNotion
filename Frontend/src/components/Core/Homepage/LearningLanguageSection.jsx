@@ -1,5 +1,5 @@
 import React from 'react'
-import HightlightText from './HighlightText';
+import HighlightText from './HighlightText';
 import know_your_progress from '../../../assets/Images/Know_your_progress.png'
 import compare_with_others from '../../../assets/Images/Compare_with_others.png'
 import plan_your_lessons from '../../../assets/Images/Plan_your_lessons.png'
@@ -11,7 +11,7 @@ const LearningLanguageSection = () => {
             {/* heading of learning language section */}
             
             <div className='text-4xl font-semibold text-center'>
-                Your swiss knife for <HightlightText text={"learning any language"}/>
+                Your swiss knife for <HighlightText text={"learning any language"}/>
             </div>
             <div className='text-center text-richblack-600 mx-auto text-base mt-4 font-medium w-[73%]'>
                 Using spin making learing multiple language easy. with 20+ language realistic voice-over,

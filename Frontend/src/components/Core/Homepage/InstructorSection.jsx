@@ -1,6 +1,6 @@
 import { FaArrowRight } from "react-icons/fa";
 import Instructor from "../../../assets/Images/Instructor.png";
-import HightlightText from "./HighlightText";
+import HighlightText from "./HighlightText";
 import CTAButton from "./CTAButton";
 const InstructorSection = () => {
   return (
@@ -13,7 +13,7 @@ const InstructorSection = () => {
             </div>
             <div className="w-[50%] flex flex-col gap-10">
                 <div className = "text-4xl font-semibold w-[50%]">
-                    Become an <HightlightText text={"Instructor"}/>    
+                    Become an <HighlightText text={"Instructor"}/>    
                 </div>                           
                 <div className="text-richblack-300 font-medium w-[80%] text-[16px]">
                     Instructors from around the world teaches million of students on StudyNotion.
