@@ -25,6 +25,7 @@ import CourseDetails from './pages/CourseDetails';
 import ViewCourse from './pages/ViewCourse';
 import VideoDetails from './components/Core/ViewCourse/VideoDetails';
 import Instructor from './components/Core/Dashboard/InstructorDashboard/Instructor';
+import Setting from "./components/Core/Dashboard/Setting/index";
 function App() {
   const {user} = useSelector((state) => state.profile)
   return (
@@ -61,7 +62,7 @@ function App() {
           }>  
               <Route index element ={<Navigate to="*"/>}/>
               <Route path ="my-profile" element={<MyProfile/>}/>
-              <Route path="setting" element={<div>Setting</div>}/>
+              <Route path="settings" element={<Setting/>}/>
               {
                 user?.accountType === ACCOUNT_TYPE.STUDENT && (
                   <>

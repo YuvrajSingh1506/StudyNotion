@@ -10,7 +10,7 @@ try {
 }
 const jwt = require("jsonwebtoken");
 const {mailSender} = require("../utils/mailSender");
-const {passwordUpdate} = require("../mail/templates/passwordUpdate");
+const {passwordUpdate, passwordUpdated} = require("../mail/templates/passwordUpdate");
 require("dotenv").config();
 //SendOTP
 
@@ -192,8 +192,8 @@ require("dotenv").config();
 exports.changePassword = async(req,res)=>{
         try{
             const id  = req.user.id;
-            const {oldPassword, newPassword, confirmPassword} = req.body;
-            if(!oldPassword || !newPassword || !confirmPassword){
+            const {oldPassword, newPassword} = req.body;
+            if(!oldPassword || !newPassword ){
                 return res.status(403).json({
                     success : false,
                     message : "All fields are required, please try again",
@@ -212,12 +212,12 @@ exports.changePassword = async(req,res)=>{
                     message : "Old password is incorrect",
                 })
             }
-            if(newPassword !== confirmPassword){
-                return res.status(400).json({
-                    success : false,
-                    message : "New password and confirm password don't match",
-                })
-            };
+            // if(newPassword !== confirmPassword){
+            //     return res.status(400).json({
+            //         success : false,
+            //         message : "New password and confirm password don't match",
+            //     })
+            // };
             const hashedPassword = await bycrpt.hash(newPassword,10);
             const updatedUser = await User.findByIdAndUpdate(id,{
                 password : hashedPassword,
@@ -238,6 +238,7 @@ exports.changePassword = async(req,res)=>{
             res.status(500).json({
                 success : false,
                 message : "Error occurred while changing password, please try again",
+                err: err.message
             })  
         }
     }
